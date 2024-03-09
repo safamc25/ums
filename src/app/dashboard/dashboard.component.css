@@ -1,0 +1,47 @@
+#nav{
+    background-color: rgb(22, 197, 221);
+    
+}
+
+#links a{
+    text-decoration: none;
+    color: white;
+    margin: 5px;
+  
+}
+hr{
+    color: white;
+}
+
+a div{
+    text-align: center;
+    font-size: large;
+}
+
+#banner{
+    height: 200px;
+    background-image: url('https://i.postimg.cc/FKZSC2nm/light-blue-banner-background.jpg');
+    background-size: cover;
+}
+
+#banner2{
+    height: 100px;
+    background-image: url('https://i.postimg.cc/FKZSC2nm/light-blue-banner-background.jpg');
+    background-size: cover;
+}
+
+div{
+    animation:pulse; /* referring directly to the animation's @keyframe declaration */
+  animation-duration: 2s; /* don't forget to set a duration! */
+}
+
+.demo-inline-calendar-card {
+    width: 250px;
+  }
+
+@media(max-width: 500px){
+    #nav{
+       
+        height: 300px;
+    }
+}

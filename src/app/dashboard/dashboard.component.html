@@ -1,0 +1,76 @@
+<div class="row">
+    <div *ngIf="menuSlide" class="col-lg-2 " id="nav">
+        <div id="links">
+            <a href="">
+                <div>
+                    <strong>
+                        <i class="fa-solid fa-house me-2"></i>
+                        Home
+                    </strong>
+                </div>
+            </a>
+            <hr>
+
+            <a routerLink="/users">
+                <div>
+                    <strong>
+                        <i class="fa-solid fa-user me-2"></i>
+                        Users
+                    </strong>
+                </div>
+            </a>
+            <hr>
+
+            <a >
+                <div (click)="logout()">
+                    <strong>
+                        <i class="fa-solid fa-right-from-bracket me-2"></i>
+                        Logout
+                    </strong>
+                </div>
+            </a>
+            <hr>
+        </div>
+    </div>
+
+    <div class="col-lg-7">
+        <div id="banner" class="m-2 rounded d-flex align-items-center">
+            <i (click)="menuClick()" class="fa-solid fa-bars fa-2x ms-5 me-5 text-white"></i>
+            <h1 class="text-white fs-1">Welcome {{AdminUserName}}</h1>
+        </div>
+        <div class="row m-4">
+            <div class="col-lg-4 p-2 shadow-lg border rounded">
+                <!-- calender -->
+                <h3 class="text-center text-danger ">Calender</h3>
+                <div>
+                    <mat-card class="demo-inline-calendar-card  ">
+                        <mat-calendar [(selected)]="selected"></mat-calendar>
+                    </mat-card>
+                </div>
+            </div>
+            <div class="col-lg-8  shadow-lg border rounded">
+                <!-- pie chart -->
+                <app-chart></app-chart>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="col-lg-3 shadow-lg border rounded p-3">
+
+        <app-admin-edit [data]="date" (onAdminChange)="updateAdmin($event)"></app-admin-edit>
+        <!-- profile edit -->
+
+     
+
+        <!-- users -->
+
+        <div id="banner2" class="m-3 rounded d-flex shadow-lg align-items-center">
+
+            <h2 class="text-white p-4 ">Total Number of Users: {{userCount}}</h2>
+
+        </div>
+
+    </div>
+
+</div>

@@ -1,0 +1,18 @@
+
+.active{
+    background-color: green;
+}
+.inactive{
+    background-color: red;
+    color: white;
+}
+
+.filter{
+    background-color: blue;
+    color: white;
+}
+
+.export{
+   
+    color: white;
+}

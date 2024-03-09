@@ -1,0 +1,41 @@
+<div class="container w-70 my-4 ">
+
+    <div class="row m-5 text-center border rounded border-dark  ">
+        <div class="col-lg-6 mt-5">
+            <img class="w-100" src="https://i.postimg.cc/9X9xpntd/add.webp" alt="">
+        </div> 
+        <div class="col-lg-6 " >
+
+            <h1 class="text-primary mt-5">Update User</h1>
+            <form (ngSubmit)="updateData()" class="p-5" >
+                <div class="mb-3 " >
+                    <input [(ngModel)]="userData.name"  type="text" placeholder="Name" name="name" class="form-control" id="Name1"
+                        aria-describedby="nameHelp">
+                </div>
+               
+                <div class="mb-3 " >
+                    <input [(ngModel)]="userData.email"  type="email" placeholder="Email" name="email" class="form-control" id="Email1"
+                        aria-describedby="emailHelp">
+                </div>
+
+               
+                
+                <div class="dropdown ">
+                    <select [(ngModel)]="userData.status"   class="w-100 p-2 rounded " name="status" id="status1">
+                        <option disabled selected hidden value="" >Status</option>
+                        <option  value="1">Active</option>
+                        <option  value="0">Inactive </option>
+                    </select>
+                   
+                </div>
+
+
+            <div class="my-5">
+                <button  type="submit" class="btn btn-primary w-50 rounded">Update</button>
+            </div>
+
+        </form>
+        </div>
+
+    </div>
+</div>

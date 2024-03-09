@@ -1,0 +1,112 @@
+<div class="container w-70">
+    <div class="row   ">
+        <div class=" my-2 ">
+            <form class="row row-cols-lg-auto g-3 align-items-center">
+                <div class="col-4">
+                  <label class="visually-hidden" for="inlineFormInputGroupUsername">Username</label>
+                  <div class="input-group">
+                    <div class="input-group-text"><i class="fa-solid fa-magnifying-glass"></i></div>
+                    <input  [(ngModel)]="userName" name="search" type="text" class="form-control" id="inlineFormInputGroupUsername" placeholder="Search user">
+                  </div>
+                </div>
+              
+              </form>
+
+            <div  class=" d-flex align-items-center justify-content-end mt-3">
+               
+               
+    
+                    
+                        <a routerLink="add-user">
+                            <button class="btn btn-secondary me-3  " id="new" type="button">
+    
+                                Add New User
+                                <i class="fa-solid fa-user-plus"></i>
+    
+                            </button>
+                        </a>
+
+                        <div class="dropdown  ">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Filter
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                <li><button (click)="changeFilterData('1')" class="dropdown-item active" href="#">Active</button></li>
+                                <li><button (click)="changeFilterData('0')" class="dropdown-item inactive" href="#">InActive</button></li>
+                                <li><button (click)="changeFilterData('')" class="dropdown-item filter" href="#">Remove Filter</button></li>
+                            </ul>
+                        </div>
+
+                        <button (click)="changeSortData()"  class="btn btn-secondary m-3  " id="new" type="button">
+    
+                            Sort Name
+                            <i class="fa-solid fa-arrow-down-a-z"></i>
+
+                        </button>
+                   
+               
+    
+            </div>
+        
+
+        <div class="row">
+            <div class="col-lg-2">
+
+            </div>
+
+          
+                <div data-aos="flip-left" class="col-lg-9 text-center ">
+                    <h2 class="mt-5 text-primary ">User Directory</h2>
+                    <table class="table  border table-striped my-5 shadow rounded  " >
+                        <thead>
+                            <tr class="table-dark">
+                                <th scope="col">#</th>
+                                <th scope="col">User Id</th>
+                                <th scope="col">Username</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">Status</th>
+                                <th scope="col"></th>
+                            </tr>
+                        </thead>
+                        <tbody  >
+                            <tr *ngFor="let i of alluser | search:userName:'name' | filter:filterData | sort:sortData  | paginate: { itemsPerPage: 5, currentPage: p}; let j = index"  >
+                                <th scope="row">{{j+1}}</th>
+                                <td>{{i.id}}</td>
+                                <td>{{i.name}}</td>
+                                <td>{{i.email}}</td>
+                                <td><i [ngClass]="i.status==1?'text-success':'text-danger'"
+                                    class="fa-solid fa-circle-exclamation"></i>
+                                    {{i.status==0?'Inactive':'Active'}}</td>
+                                <td>
+                                    <a  routerLink="edit-user/{{i.id}}" class="m-2 p-2 rounded bg-success">
+                                        <i class="fa-solid fa-user-pen" style="color: white;"></i>
+                                    </a>
+                                    <a (click)="removeUser(i.id)" class="m-2 p-2 rounded bg-danger">
+                                        <i class="fa-solid fa-user-xmark " style="color: white;"></i>
+                                    </a>
+                                </td>
+                            </tr>
+    
+                        </tbody>
+                    </table>
+
+                    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+
+                </div>
+           </div>
+            <div></div>
+            <div class=" m-5  ">
+                <button (click)="convertPdf()" type="button " class="btn btn-secondary ms-5 py-2">
+
+                    Export as Pdf
+                    <i class="fa-regular fa-file-pdf"></i>
+                </button>
+
+            </div>
+        </div>
+    </div>
+
+
+
+</div>
